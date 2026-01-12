@@ -19,7 +19,7 @@ class Solution:
     def __inti__(self):
         pass
 
-    def linear_search_algorithm(self,arr,val):
+    def linear_search(self,arr,val):
         n=len(arr)
         for i in range(n):
             if arr[i] == val :
@@ -27,6 +27,20 @@ class Solution:
 
         return -1
     
-arr = [2,3,4,1,6,8]
+    def binary_search(self,arr,val):
+        left = 0
+        right = len(arr)
+        while left <= right:
+            mid = (left + right )//2
+            if val == arr[mid]:
+                return mid
+            elif val < arr[mid]:
+                right = mid - 1
+            else :
+                left = mid + 1
+    
+arr = sorted([2,3,4,1,6,8])
+print(arr)
 val = 6
 print(Solution().linear_search_algorithm(arr,val))
+print(Solution().binary_search(arr,val))
