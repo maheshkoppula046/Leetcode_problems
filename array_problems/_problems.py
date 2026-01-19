@@ -46,3 +46,37 @@ class Solution:
         return True
     
 
+    def max_sub_arr(self,arr):
+        current_arr = arr[0]
+        max_sum = arr[0]
+        for num in arr[1:]:
+            current_arr = max(current_arr + num,num)
+            max_sum = max(max_sum,current_arr)
+        return max_sum
+    
+    def max_profit(self,prices):
+        min_price = prices[0]
+        max_profit = 0
+        for price in prices[1:]:
+            min_price = min(min_price,price)
+            max_profit = max(max_profit,price - min_price)
+        return max_profit
+    
+
+    def majority_element(self,arr):
+        count = {}
+        majority_count = len(arr)//2
+        for num in arr:
+            count[num] = count.get(num,0)+1
+            if count[num] > majority_count:
+                return num
+            
+        return None
+    
+
+    def move_zeros(self,arr):
+        left_index = 0 
+        for right,num in enumerate(arr):
+            if num != 0:
+                arr[left_index],arr[right]=arr[right],arr[left_index]
+                left_index+=1
