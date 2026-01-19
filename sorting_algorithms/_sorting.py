@@ -45,10 +45,23 @@ class Solution:
         result+=left[i:]
         result+=right[j:]
         return result
+    
+
+    def quick_sort(self,arr):
+        if len(arr)<=1:
+            return arr
+        pivot = arr[0]
+        left = [ i for i in arr[1:] if i <= pivot]
+        right = [ j for j in arr[1:] if j > pivot]
+        return self.quick_sort(left) + [pivot] + self.quick_sort(right)
+    
+    
 
 
 
-arr = [3,2,4,5,1,9,0]
-print(Solution().bubble_sort(arr))
-print(Solution().select_sort(arr))
-print(Solution().merge_sort(arr))
+if __name__ == '__main__':
+    arr = [3,2,4,5,1,9,0]
+    print("buble sort -->",Solution().bubble_sort(arr))
+    print("select sort -->",Solution().select_sort(arr))
+    print("merge sort -->",Solution().merge_sort(arr))
+    print("quick sort -->",Solution().quick_sort(arr))
