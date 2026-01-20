@@ -80,3 +80,23 @@ class Solution:
             if num != 0:
                 arr[left_index],arr[right]=arr[right],arr[left_index]
                 left_index+=1
+
+
+    def merge(num1,num2):
+        # nums1 = [1,2,3,0,0,0], m = 3
+        # nums2 = [2,5,6],       n = 3
+        pass
+
+
+    def remove_duplicates_sorted_arr(self,arr):
+        if not arr:
+            return None
+        
+        k = 1
+        n = len(n)
+        for index in range(1,n):
+            if arr[index] != arr[index -1]:
+                arr[k] = arr[index]
+                k+=1
+        return k
+
